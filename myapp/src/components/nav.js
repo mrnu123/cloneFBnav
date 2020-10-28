@@ -9,12 +9,13 @@ import game_btn from '../image/sports_esports.svg'
 import user_btn from '../image/account_circle.svg'
 import add_btn from '../image/add_circle.svg'
 import msg_btn from '../image/messenger.svg'
-import './nav'
+import './nav.css'
+
 
 
 function nav() {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <nav className="navbar">
         <a class="navbar-brand" href="#">
             <img src={logo_fb} width="48" height="48"></img>
         </a>
