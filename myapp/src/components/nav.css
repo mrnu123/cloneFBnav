@@ -7,6 +7,18 @@ svg:hover{
 p{
     color: #ffffff
 }
+:nav{
+    --bg:  #242526;
+    --bg-accent: #484a4d;
+    --text-color: #dadce1;
+    --nav-size: 60px;
+    --border: 1px solid #474a4d;
+    --border-radius: 8px;
+    --speed: 500ms;
+  }
 .navbar{
-    background-color: #cc00;
+    height: var(--nav-size);
+  background-color: var(--bg);
+  padding: 0 1rem;
+  border-bottom: var(--border);
 }

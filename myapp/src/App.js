@@ -8,19 +8,43 @@ import {ReactComponent as ChevronIcon} from './image/chevron.svg'
 import {ReactComponent as CircleIcon} from './image/circle.svg'
 import {ReactComponent as BackIcon} from './image/arrow.svg'
 import {ReactComponent as ItemIcon} from './image/flash.svg'
+import {ReactComponent as FBIcon} from './image/facebook_logo.svg'
+import {ReactComponent as HomeIcon} from './image/home.svg'
+import {ReactComponent as VDOIcon} from './image/ondemand_video.svg'
+import {ReactComponent as MarketIcon} from './image/storefront.svg'
+import {ReactComponent as CommunityIcon} from './image/groups.svg'
+import {ReactComponent as GameIcon} from './image/sports_esports.svg'
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 // import {ReactComponent as add_btn} from './image/add_circle.svg'
 // import add_btn from './image/add_circle.svg'
 function App() {
   return (
-    <Navbar>
-      <NavItem icon={<PlusIcon />} />
-      <NavItem icon={<MsgIcon />} />
-      <NavItem icon={<BellIcon />} />
-      <NavItem icon={<DropDownIcon />}>
-        <DropdownMenu />
-      </NavItem>
+    <Navbar >
+    {/* <NavItemLeft iconLeft={<PlusIcon />} /> */}
+
+      <Ul class_name="left">
+        <Logo icon={<FBIcon />} />
+      </Ul>
+
+      <Ul class_name="center">
+        <NavItem icon={<HomeIcon />} class_name="icon-center" class_li_name="nav-item-center" link="index.html"/>
+        <NavItem icon={<VDOIcon />} class_name="icon-center" class_li_name="nav-item-center" link="vdo.html"/>
+        <NavItem icon={<MarketIcon />} class_name="icon-center" class_li_name="nav-item-center" link="#"/>
+        <NavItem icon={<CommunityIcon />} class_name="icon-center" class_li_name="nav-item-center" link="#"/>
+        <NavItem icon={<GameIcon />} class_name="icon-center" class_li_name="nav-item-center" link="#"/>
+      </Ul>
+
+      <Ul class_name="right">
+        <NavItem icon={<PlusIcon />} class_name="icon-button" class_li_name="nav-item"/>
+        <NavItem icon={<MsgIcon />} class_name="icon-button" class_li_name="nav-item"/>
+        <NavItem icon={<BellIcon />} class_name="icon-button" class_li_name="nav-item"/>
+        <NavItem icon={<DropDownIcon />} class_name="icon-button" class_li_name="nav-item">
+          <DropdownMenu />
+        </NavItem>
+      </Ul>
+
+     
     </Navbar>
   );
 }
@@ -90,22 +114,39 @@ function DropdownMenu(){
 function Navbar(props) {
   return (
     <nav className="navbar">
-      <ul className="navbar-nav">
-      {props.children}
-      </ul>
+          {props.children}
     </nav>
+  );
+}
+
+function Ul(props){
+  return(
+    <ul className={props.class_name}>
+    {props.children}
+  </ul>
   );
 }
 
 function NavItem(props){
   const[open,setOpen]=useState(false);
   return(
-    <li className="nav-item">
-      <a href="#" className="icon-button" onClick={()=>setOpen(!open)}>
+    <li className={props.class_li_name}>
+      <a href={props.link} className={props.class_name} onClick={()=>setOpen(!open)}>
         {props.icon}
       </a>
       {open && props.children}
     </li>
+   
   )
 }
+function Logo(props){
+  return(
+    <li class="logo">
+    <a href="#">
+   {props.icon}
+   </a>
+   </li>
+  )
+}
+
 export default App;
