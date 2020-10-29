@@ -14,38 +14,52 @@ import {ReactComponent as VDOIcon} from '../image/ondemand_video.svg'
 import {ReactComponent as MarketIcon} from '../image/storefront.svg'
 import {ReactComponent as CommunityIcon} from '../image/groups.svg'
 import {ReactComponent as GameIcon} from '../image/sports_esports.svg'
+import {BrowserRouter, Route,Switch,Link,NavLink}from 'react-router-dom'
+// import{NavLink} from 'react-router'
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
+
+import vdo from './vdo';
 // import {ReactComponent as add_btn} from './image/add_circle.svg'
 // import add_btn from './image/add_circle.svg'
 function nav() {
   return (
+    <BrowserRouter>
     <Navbar >
     {/* <NavItemLeft iconLeft={<PlusIcon />} /> */}
-
+    
       <Ul class_name="left">
         <Logo icon={<FBIcon />} />
       </Ul>
 
       <Ul class_name="center">
-        <NavItem icon={<HomeIcon />} class_name="icon-center" class_li_name="nav-item-center" link="index.html"/>
-        <NavItem icon={<VDOIcon />} class_name="icon-center" class_li_name="nav-item-center" link="vdo.html"/>
-        <NavItem icon={<MarketIcon />} class_name="icon-center" class_li_name="nav-item-center" link="#"/>
-        <NavItem icon={<CommunityIcon />} class_name="icon-center" class_li_name="nav-item-center" link="#"/>
-        <NavItem icon={<GameIcon />} class_name="icon-center" class_li_name="nav-item-center" link="#"/>
+        <NavItem icon={<HomeIcon />} class_name="icon-center" class_li_name="nav-item-center" link="/home" active_class="is-active"/>
+        <NavItem icon={<VDOIcon />} class_name="icon-center" class_li_name="nav-item-center" link="/vdo" active_class="is-active"/>
+        <NavItem icon={<MarketIcon />} class_name="icon-center" class_li_name="nav-item-center" link="/store" active_class="is-active"/>
+        <NavItem icon={<CommunityIcon />} class_name="icon-center" class_li_name="nav-item-center" link="/group" active_class="is-active"/>
+        <NavItem icon={<GameIcon />} class_name="icon-center" class_li_name="nav-item-center" link="/game" active_class="is-active"/>
       </Ul>
 
       <Ul class_name="right">
-        <NavItem icon={<PlusIcon />} class_name="icon-button" class_li_name="nav-item"/>
-        <NavItem icon={<MsgIcon />} class_name="icon-button" class_li_name="nav-item"/>
-        <NavItem icon={<BellIcon />} class_name="icon-button" class_li_name="nav-item"/>
-        <NavItem icon={<DropDownIcon />} class_name="icon-button" class_li_name="nav-item">
+        <NavItem icon={<PlusIcon />} class_name="icon-button" class_li_name="nav-item" link="/a" active_class="is-active-right"/>
+        <NavItem icon={<MsgIcon />} class_name="icon-button" class_li_name="nav-item" link="/b" active_class="is-active-right"/>
+        <NavItem icon={<BellIcon />} class_name="icon-button" class_li_name="nav-item" link="/c" active_class="is-active-right"/>
+        <NavItem icon={<DropDownIcon />} class_name="icon-button" class_li_name="nav-item" link="/d" active_class="is-active-right">
           <DropdownMenu />
         </NavItem>
       </Ul>
-
      
+      
     </Navbar>
+    <div>
+     
+        <Switch>
+        {/* <NavLink exact activeClassName="active" to="/vdo"></NavLink> */}
+          <Route exact path="/vdo" activeClassName="active"><vdo></vdo></Route>
+          {/* <Route exact path="/home" component={home} /> */}
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
@@ -129,15 +143,19 @@ function Ul(props){
 
 function NavItem(props){
   const[open,setOpen]=useState(false);
+  const[class_name,setClass_name]=useState("");
   return(
     <li className={props.class_li_name}>
-      <a href={props.link} className={props.class_name} onClick={()=>setOpen(!open)}>
+      {/* <a  className={props.class_name} onClick={()=>setOpen(!open)}> */}
+      <NavLink to={props.link} className={props.class_name} onClick={()=>setOpen(!open)} activeClassName={props.active_class}>
         {props.icon}
-      </a>
+      </NavLink>
+        {/* </a> */}
       {open && props.children}
     </li>
    
   )
+
 }
 function Logo(props){
   return(
