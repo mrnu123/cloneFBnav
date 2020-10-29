@@ -16,6 +16,9 @@ import {ReactComponent as CommunityIcon} from '../image/groups.svg'
 import {ReactComponent as GameIcon} from '../image/sports_esports.svg'
 import {BrowserRouter, Route,Switch,Link,NavLink}from 'react-router-dom'
 import Post_id from './post_id'
+import Post from './post'
+import Home from './home'
+import Pagination from './pagination'
 // import{NavLink} from 'react-router'
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
@@ -36,7 +39,7 @@ function nav() {
       </Ul>
 
       <Ul class_name="center">
-        <NavItem icon={<HomeIcon />} class_name="icon-center" class_li_name="nav-item-center" link="/posts" active_class="is-active"/>
+        <NavItem icon={<HomeIcon />} class_name="icon-center" class_li_name="nav-item-center" link="/r" active_class="is-active"/>
         <NavItem icon={<VDOIcon />} class_name="icon-center" class_li_name="nav-item-center" link="/vdo" active_class="is-active"/>
         <NavItem icon={<MarketIcon />} class_name="icon-center" class_li_name="nav-item-center" link="/store" active_class="is-active"/>
         <NavItem icon={<CommunityIcon />} class_name="icon-center" class_li_name="nav-item-center" link="/group" active_class="is-active"/>
@@ -44,8 +47,8 @@ function nav() {
       </Ul>
 
       <Ul class_name="right">
-        <NavItem icon={<PlusIcon />} class_name="icon-button" class_li_name="nav-item" link="/a" active_class="is-active-right"/>
-        <NavItem icon={<MsgIcon />} class_name="icon-button" class_li_name="nav-item" link="/b" active_class="is-active-right"/>
+        <NavItem icon={<PlusIcon />} class_name="icon-button" class_li_name="nav-item" link="/b" active_class="is-active-right"/>
+        <NavItem icon={<MsgIcon />} class_name="icon-button" class_li_name="nav-item" link="/a" active_class="is-active-right"/>
         <NavItem icon={<BellIcon />} class_name="icon-button" class_li_name="nav-item" link="/c" active_class="is-active-right"/>
         <NavItem icon={<DropDownIcon />} class_name="icon-button" class_li_name="nav-item" link="/d" active_class="is-active-right">
           <DropdownMenu />
@@ -59,7 +62,8 @@ function nav() {
         <Switch>
         {/* <NavLink exact activeClassName="active" to="/vdo"></NavLink> */}
           <Route exact path="/vdo"  component={vdo}></Route>
-          <Route exact path="/posts" component={home} />
+          {/* <Route exact path="/posts" component={Post} /> */}
+          {/* <Route exact path="/page/:id"  children={<Home />}></Route> */}
           <Route path={"/posts/:id"} children={<Post_id />}>
           {/* <Post_id id={id}></Post_id> */}
           </Route>

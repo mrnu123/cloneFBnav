@@ -6,9 +6,7 @@ import {BrowserRouter, Route,Switch,Link,NavLink,useParams}from 'react-router-do
 import Post_id from './post_id'
 function Home(){
     const[data,setData]=useState([]);
-    // const[id,setId]=useState(10);
-    let {id}=useParams();
-    console.log("id"+id)
+
   useEffect(()=>{
     Axios.get('http://jsonplaceholder.typicode.com/posts')
     .then(res=>{
@@ -37,7 +35,7 @@ function Home(){
               <th>Name</th>
             </tr>
             {
-              data.filter(i=>i.id<=id*10 && i.id>(id-1)*10).map(i=>(<tr><td class="list">
+              data.map(i=>(<tr><td class="list">
               <Link exact to={"/posts/"+i.id} className="list"  >
               {i.id}
               </Link>

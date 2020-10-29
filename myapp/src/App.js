@@ -7,14 +7,22 @@ import Pagination from './components/pagination';
 import Axios from 'axios';
 import Post_id from './components/post_id'
 import './App.css';
+import Post from './components/post'
 function App() {
   
   return (
 <BrowserRouter>
+<div>
     <Nav></Nav>
-    <div>
-    </div>
+    
+    <Switch>
+     {/* <Route exact path="/page/:id"  children={<Home />}></Route> */}
+     <Route exact path="/" components={Post} />
+
+     </Switch>
+    
     <Pagination />
+    </div>
     </BrowserRouter>
  
   );
