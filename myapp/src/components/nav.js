@@ -15,11 +15,14 @@ import {ReactComponent as MarketIcon} from '../image/storefront.svg'
 import {ReactComponent as CommunityIcon} from '../image/groups.svg'
 import {ReactComponent as GameIcon} from '../image/sports_esports.svg'
 import {BrowserRouter, Route,Switch,Link,NavLink}from 'react-router-dom'
+import Post_id from './post_id'
 // import{NavLink} from 'react-router'
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import vdo from './vdo';
+
+import home from './home';
 // import {ReactComponent as add_btn} from './image/add_circle.svg'
 // import add_btn from './image/add_circle.svg'
 function nav() {
@@ -33,7 +36,7 @@ function nav() {
       </Ul>
 
       <Ul class_name="center">
-        <NavItem icon={<HomeIcon />} class_name="icon-center" class_li_name="nav-item-center" link="/home" active_class="is-active"/>
+        <NavItem icon={<HomeIcon />} class_name="icon-center" class_li_name="nav-item-center" link="/posts" active_class="is-active"/>
         <NavItem icon={<VDOIcon />} class_name="icon-center" class_li_name="nav-item-center" link="/vdo" active_class="is-active"/>
         <NavItem icon={<MarketIcon />} class_name="icon-center" class_li_name="nav-item-center" link="/store" active_class="is-active"/>
         <NavItem icon={<CommunityIcon />} class_name="icon-center" class_li_name="nav-item-center" link="/group" active_class="is-active"/>
@@ -55,8 +58,11 @@ function nav() {
      
         <Switch>
         {/* <NavLink exact activeClassName="active" to="/vdo"></NavLink> */}
-          <Route exact path="/vdo" activeClassName="active"><vdo></vdo></Route>
-          {/* <Route exact path="/home" component={home} /> */}
+          <Route exact path="/vdo"  component={vdo}></Route>
+          <Route exact path="/posts" component={home} />
+          <Route path={"/posts/:id"} children={<Post_id />}>
+          {/* <Post_id id={id}></Post_id> */}
+          </Route>
         </Switch>
       </div>
     </BrowserRouter>

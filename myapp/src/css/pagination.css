@@ -1,0 +1,27 @@
+.pagination-bg{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    direction:row;
+    margin-bottom:15px;
+/* background-color:#ccc */
+}
+.pagination{
+    width:25%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    direction:row;
+background-color:rgb(129, 117, 117);
+    border-radius:10px;
+} 
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  .pagination a.active {
+    background-color: #2d88ff;
+    color: white;
+  }

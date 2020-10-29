@@ -262,3 +262,6 @@ a.is-active-right svg{
   transform: translateX(110%);
   transition: all var(--speed) ease;
 }
+.list{
+  color:#000;
+}

@@ -1,21 +1,23 @@
-import {BrowserRouter, Route,Switch,Link}from 'react-router-dom'
+import {BrowserRouter, Route,Switch,Link,NavLink}from 'react-router-dom'
+import React,{useState,useEffect} from 'react'
 import Nav from './components/nav';
 import vdo from './components/vdo';
-import home from './components/home';
+import Home from './components/home';
+import Pagination from './components/pagination';
+import Axios from 'axios';
+import Post_id from './components/post_id'
+import './App.css';
 function App() {
+  
   return (
-    // <BrowserRouter> 
+<BrowserRouter>
     <Nav></Nav>
-    
-  //    <div>
-     
-  //       <Switch>
-  //         <Route exact path="/vdo" component={vdo} />
-  //         <Route exact path="/home" component={home} />
-  //       </Switch>
-  //     </div>
-  //     </BrowserRouter>
-  )
+    <div>
+    </div>
+    <Pagination />
+    </BrowserRouter>
+ 
+  );
 }
 
 export default App;

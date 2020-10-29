@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  display: flex;
+  width: 100%;
+  /* justify-content: center; */
+
+}
+
+.table{
+  display: flex;
+  /* direction: row; */
+  width: 90%;
+  height: 70%;
+  margin:30px;
+  justify-content: center;
+}
+
+.list{
+  color:#000;
+}
+.list:hover{
+  color:#2d88ff;
+}
