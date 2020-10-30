@@ -4,7 +4,7 @@ import Axios from 'axios';
 import '../App.css';
 import {BrowserRouter, Route,Switch,Link,NavLink,useParams}from 'react-router-dom'
 import Post_id from './post_id'
-function Home(){
+function Top10(){
     const[data,setData]=useState([]);
     let {id}=useParams();
     console.log("id"+id)
@@ -36,7 +36,7 @@ function Home(){
               <th>Name</th>
             </tr>
             {
-              data.filter(i=>i.id<=id*10 && i.id>(id-1)*10).map(i=>(<tr><td class="list">
+              data.filter(i=>i.id<=10 ).map(i=>(<tr><td class="list">
               <Link exact to={"/posts/"+i.id} className="list"  >
               {i.id}
               </Link>
@@ -50,4 +50,4 @@ function Home(){
     )
     
 }
-export default Home
+export default Top10
